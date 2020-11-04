@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path name="data" path="Android/data/com.demo.opencv/" />
+    <external-path name="storage" path="." />
+    <external-files-path name="files" path="." />
+    <external-cache-path name="cache" path="." />
+    <external-media-path name="media" path="." />
+</paths>
