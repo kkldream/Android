@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">week2_1</string>
+    <string name="str1">f6222020黃朝曦</string>
+    <string name="sex">性別</string>
+    <string name="sex_hint">(輸入性別)</string>
+    <string name="age">年齡</string>
+    <string name="age_hint">(輸入年齡)</string>
+    <string name="btn_ok">確定</string>
+    <string name="suggestion">建議：</string>
+
+</resources>

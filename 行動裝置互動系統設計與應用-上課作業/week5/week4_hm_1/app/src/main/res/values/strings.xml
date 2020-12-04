@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">week3_hm_1</string>
+    <string-array name="sex_list">
+        <item>"男"</item>
+        <item>"女"</item>
+    </string-array>
+
+</resources>

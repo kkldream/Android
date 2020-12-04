@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">week2_1</string>
+    <string name="sex">性別</string>
+    <string name="age">年齡</string>
+    <string name="sex_hint">請輸入性別</string>
+    <string name="age_hint">請輸入年齡</string>
+    <string name="kk">B0742044 莊家郡</string>
+    <string name="btn_ok">確定</string>
+    <string name="sugges">建議：</string>
+</resources>
