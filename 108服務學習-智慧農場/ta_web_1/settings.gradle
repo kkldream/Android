@@ -1,0 +1,2 @@
+rootProject.name='ta_web_1'
+include ':app'
