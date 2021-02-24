@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    final static int r = 10;
     float size;
     TextView textView;
     @Override
@@ -15,24 +16,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView = findViewById(R.id.textView);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(100);
-                    size = textView.getTextSize();
-                    Log.i("TAG", String.valueOf(size));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+        size = textView.getTextSize() / getResources().getDisplayMetrics().scaledDensity;
+        Log.i("TAG", "Start：" + size);
+
+        findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textView.setTextSize(++size);
+                size = size + r;
+                textView.setTextSize(size);
+                Log.i("TAG", String.valueOf(size));
+            }
+        });
+
+        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                size = size - r;
+                textView.setTextSize(size);
                 Log.i("TAG", String.valueOf(size));
             }
         });
     }
+
 }
