@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         imageView = findViewById(R.id.imageView);
         paint = new Paint();
-        paint.setStrokeWidth(100);
         paint.setColor(Color.RED);
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     float cx = motionEvent.getX();
                     float cy = motionEvent.getY();
-                    canvas.drawCircle(cx, cy, 10, paint);
+                    canvas.drawCircle(cx, cy, 50, paint);
                     imageView.setImageBitmap(baseBitmap);
                 }
                 return true;
