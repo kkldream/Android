@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">t3</string>
+    <string-array name="spinner_arr">
+        <item>AAA</item>
+        <item>BBB</item>
+        <item>CCC</item>
+    </string-array>
 </resources>
