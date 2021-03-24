@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">t2</string>
+    <string-array name="AAA">
+        <item>AAAAA</item>
+        <item>BBBBB</item>
+        <item>CCCCC</item>
+    </string-array>
 </resources>
