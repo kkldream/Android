@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">t1</string>
+    <string-array name="mean1_list">
+        <item>水</item>
+        <item>尿</item>
+        <item>屎</item>
+    </string-array>
+    <string-array name="mean2_list1">
+        <item>冰</item>
+        <item>溫</item>
+    </string-array>
+    <string-array name="mean2_list2">
+        <item>冰</item>
+        <item>溫</item>
+        <item>燙</item>
+    </string-array>
 </resources>
