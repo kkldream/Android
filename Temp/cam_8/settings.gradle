@@ -1,0 +1,2 @@
+rootProject.name='cam_8'
+include ':app'

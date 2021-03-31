@@ -1,0 +1,2 @@
+rootProject.name='gm_gps_1'
+include ':app'

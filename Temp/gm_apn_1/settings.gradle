@@ -1,0 +1,2 @@
+rootProject.name='gm_apn_1'
+include ':app'
