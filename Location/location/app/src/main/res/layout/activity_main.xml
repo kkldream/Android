@@ -8,21 +8,29 @@
     tools:context=".MainActivity">
 
     <ToggleButton
-        android:id="@+id/toggleButton1"
+        android:id="@+id/toggleButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ToggleButton" />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="TextView" />
+
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button" />
 
-    <Button
-        android:id="@+id/button2"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:gravity="center"
+        android:text="TextView" />
 
 </LinearLayout>
