@@ -32,7 +32,7 @@ public class Location {
     }
 
     public double[] getLocation() {
-        android.location.Location location = locationManager.getLastKnownLocation(bestProvider);
+        android.location.Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         return new double[]{location.getLatitude(), location.getLongitude()};
     }
 

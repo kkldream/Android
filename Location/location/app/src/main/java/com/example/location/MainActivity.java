@@ -12,14 +12,16 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "TAG";
-    ToggleButton toggleButton;
+    ToggleButton toggleButton1, toggleButton2;
     Button button;
     TextView textView1, textView2;
     Location location;
+    Timer location_timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         location = new Location(this);
 
-        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        toggleButton1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onLocationChanged(@NonNull android.location.Location location) {
                             double latitude = location.getLatitude(),
                                     longitude = location.getLongitude();
-                            Log.i(TAG, String.format("latitude = %f, longitude = %f", latitude, longitude));
+                            Log.i(TAG, String.format("[Listener] latitude = %f, longitude = %f", latitude, longitude));
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 double latitude = location.getLocation()[0],
                         longitude = location.getLocation()[1];
-                Log.i(TAG, String.format("latitude = %f, longitude = %f", latitude, longitude));
+                Log.i(TAG, String.format("[Click] latitude = %f, longitude = %f", latitude, longitude));
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -72,12 +74,39 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+
+        toggleButton2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    location_timer = new Timer();
+                    location_timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            double latitude = location.getLocation()[0],
+                                    longitude = location.getLocation()[1];
+                            Log.i(TAG, String.format("[Timer] latitude = %f, longitude = %f", latitude, longitude));
+                        }
+                    }, 0, 1000);
+                } else {
+                    location_timer.cancel();
+                }
+            }
+        });
     }
 
     private void findViewById() {
-        toggleButton = findViewById(R.id.toggleButton);
+        toggleButton1 = findViewById(R.id.toggleButton1);
+        toggleButton2 = findViewById(R.id.toggleButton2);
         button = findViewById(R.id.button);
         textView1 = findViewById(R.id.textView1);
         textView2 = findViewById(R.id.textView2);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (location_timer != null)
+            location_timer.cancel();
     }
 }
