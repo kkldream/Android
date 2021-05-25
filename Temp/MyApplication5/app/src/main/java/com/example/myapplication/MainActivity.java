@@ -14,6 +14,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -74,8 +75,10 @@ public class MainActivity extends AppCompatActivity {
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         locationMove = new LocationMove(getSystemService(Context.LOCATION_SERVICE));
-        baseBitmap = BitmapFactory.decodeFile(imagePath);
-        imageView.setImageBitmap(baseBitmap);
+//        baseBitmap = BitmapFactory.decodeFile(imagePath);
+//        imageView.setImageBitmap(baseBitmap);
+        imageView.setImageResource(R.drawable.map);
+        baseBitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
@@ -137,8 +140,10 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
-                baseBitmap = Bitmap.createScaledBitmap(bitmap, imageView.getWidth(), imageView.getHeight(), false);
+                imageView.setImageResource(R.drawable.map);
+                baseBitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
+//                Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
+//                baseBitmap = Bitmap.createScaledBitmap(bitmap, imageView.getWidth(), imageView.getHeight(), false);
                 Log.d(TAG,baseBitmap.getWidth() + "x" + baseBitmap.getHeight());
                 canvas = new Canvas(baseBitmap);
                 runOnUiThread(new Runnable() {
