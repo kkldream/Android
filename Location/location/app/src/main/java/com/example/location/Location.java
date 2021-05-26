@@ -45,7 +45,7 @@ public class Location {
         locationManager.removeUpdates(locationListener);
     }
 
-    private void checkPermission(Context context) {
+    public void checkPermission(Context context) {
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions((Activity) context,
