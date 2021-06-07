@@ -38,5 +38,7 @@ public class MainActivity extends AppCompatActivity {
         File sdCard = Environment.getExternalStorageDirectory();
         File directory_pictures = new File(sdCard, "Pictures");
         Log.i(TAG,"directory_pictures="+directory_pictures);
+        File filePath = getExternalFilesDir("Pictures");
+        Log.i(TAG,"filePath="+filePath);
     }
 }
